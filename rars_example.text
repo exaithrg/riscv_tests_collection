@@ -1,0 +1,44 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x0fc10297  auipc x5,0x0000fc10          28       la t0,array          # load array to register t0 
+0x00400004  0x00028293  addi x5,x5,0                      
+0x00400008  0x0fc10317  auipc x6,0x0000fc10          29       lw t1,position
+0x0040000c  0x06832303  lw x6,0x00000068(x6)              
+0x00400010  0x0fc10497  auipc x9,0x0000fc10          30       lw s1,positiveSum    # load the positive sum to s1, and negative sum to s2
+0x00400014  0x0584a483  lw x9,0x00000058(x9)              
+0x00400018  0x0fc10917  auipc x18,0x0000fc10         31       lw s2,negativeSum
+0x0040001c  0x05492903  lw x18,0x00000054(x18)            
+0x00400020  0x00231e13  slli x28,x6,2                37       slli t3,t1,2
+0x00400024  0x005e0e33  add x28,x28,x5               38       add t3,t3,t0    # add the base address and the above result
+0x00400028  0x000e2e83  lw x29,0(x28)                39       lw t4,0(t3)     # load the word from above address into t4
+0x0040002c  0x020e8063  beq x29,x0,0x00000020        40       beqz t4,exit    # exit loop when reaching 0
+0x00400030  0x0040006f  jal x0,0x00000004            41       j checkSign     # if value is not 0 jump to check integer sign
+0x00400034  0x000ec663  blt x29,x0,0x0000000c        44       bltz t4,addNegative     # check if array value is negative, if yes goto addnegative
+0x00400038  0x01d484b3  add x9,x9,x29                48       add s1,s1,t4    # add all positive integers to s1 register
+0x0040003c  0x0080006f  jal x0,0x00000008            49       j increment     # increment
+0x00400040  0x01d90933  add x18,x18,x29              52       add s2,s2,t4    # add the negative integers to the s2 register
+0x00400044  0x00130313  addi x6,x6,1                 56       addi t1,t1,1    # increment the current index in t1 by 1
+0x00400048  0xfd9ff06f  jal x0,0xffffffd8            57       j loop
+0x0040004c  0x0fc10317  auipc x6,0x0000fc10          60       la t1,positiveSum
+0x00400050  0x01c30313  addi x6,x6,28                     
+0x00400054  0x00932023  sw x9,0(x6)                  61       sw s1,(t1)
+0x00400058  0x0fc10317  auipc x6,0x0000fc10          62       sw s2,negativeSum,t1
+0x0040005c  0x01232a23  sw x18,20(x6)                     
+0x00400060  0x0fc10517  auipc x10,0x0000fc10         64       la a0,posTotalMsg   # ECALL. PRINT MESSAGE.
+0x00400064  0x01450513  addi x10,x10,20                   
+0x00400068  0x00400893  addi x17,x0,4                65       li a7,4             # print the positive sum 
+0x0040006c  0x00000073  ecall                        66       ecall               # check RARS "help" to see how ecall works
+0x00400070  0x0fc10517  auipc x10,0x0000fc10         68       lw a0,positiveSum   # ECALL. PRINT NUMBER.
+0x00400074  0xff852503  lw x10,0xfffffff8(x10)            
+0x00400078  0x00100893  addi x17,x0,1                69       li a7,1
+0x0040007c  0x00000073  ecall                        70       ecall
+0x00400080  0x0fc10517  auipc x10,0x0000fc10         72       la a0,negTotalMsg   # ECALL. PRINT MESSAGE.
+0x00400084  0x00f50513  addi x10,x10,15                   
+0x00400088  0x00400893  addi x17,x0,4                73       li a7,4             # print the negative sum 
+0x0040008c  0x00000073  ecall                        74       ecall
+0x00400090  0x0fc10517  auipc x10,0x0000fc10         76       lw a0,negativeSum   # ECALL. PRINT NUMBER.
+0x00400094  0xfdc52503  lw x10,0xffffffdc(x10)            
+0x00400098  0x00100893  addi x17,x0,1                77       li a7,1
+0x0040009c  0x00000073  ecall                        78       ecall
+0x004000a0  0x00a00893  addi x17,x0,10               81       li a7,10
+0x004000a4  0x00000073  ecall                        82       ecall               # ECALL: EXIT PROGRAM
