@@ -5,3 +5,4 @@
 5：第二版多输入rvencoder
 6：真正的rvencoder，bash脚本版，不是函数。彻底不用bc或者printf的hex2bin。很好，就这样。
 7：rvencoder开发完毕，代码被引入.aliases，但是不支持bash。不支持bash以及decoder的格式和二进制问题在dotfiles中解决。
+8：REFACTOR：添加deilt的ref tests
