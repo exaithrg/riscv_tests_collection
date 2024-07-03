@@ -18,7 +18,7 @@ CHMOD = chmod
 # Compiler and linker flags
 ARCH_FLAGS = -march=rv32i -mabi=ilp32
 CFLAGS = $(ARCH_FLAGS) -nostdlib -c
-LDFLAGS = -m elf32lriscv -T linkadd.ld -nostdlib
+LDFLAGS = -m elf32lriscv -T basic.ld -nostdlib
 
 # Source files
 # start.s must be the first one
