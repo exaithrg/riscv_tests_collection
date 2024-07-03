@@ -2,6 +2,7 @@
 .section .text
 .global _start
 _start:
+    la sp, __stack_top
     call main
     # 使用 ecall 指令退出
     li a7, 93          # ecall 号，93 代表 exit

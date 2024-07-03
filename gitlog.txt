@@ -7,3 +7,4 @@
 7：rvencoder开发完毕，代码被引入.aliases，但是不支持bash。不支持bash以及decoder的格式和二进制问题在dotfiles中解决。
 8：REFACTOR：添加deilt的ref tests
 9：添加lsutests，用来测试load和store指令，注意，依然采用了start+main的形式
+10：经历了lsutests之后，决定通过修改sp初值的方式保证add_elf代码中不可能出现向负地址进行读写的语句
