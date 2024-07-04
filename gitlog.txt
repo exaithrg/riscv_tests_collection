@@ -10,3 +10,4 @@
 10：经历了lsutests之后，决定通过修改sp初值的方式保证add_elf代码中不可能出现向负地址进行读写的语句
 11：add_elf的更新版，不再出现读写负地址
 12：基于https://riscvasm.lucasteske.dev/拿到了完整的lucasteske链接脚本和汇编语言
+13：将tests拷贝到：\\wsl.localhost\Ubuntu-22.04\home\geng\GitHubRepos\exaithrg\riscv_tests_collection\tests\references\RV32NAvi349\tests
