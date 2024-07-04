@@ -5,7 +5,7 @@ main.elf:     file format elf32-littleriscv
 Disassembly of section .text:
 
 00000000 <_start>:
-   0:	70000113          	li	sp,1792
+   0:	20000113          	li	sp,512
    4:	008000ef          	jal	c <main>
 
 00000008 <loop>:

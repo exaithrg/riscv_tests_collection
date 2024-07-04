@@ -13,7 +13,7 @@ MEMORY
     /* ROM: Start at 0x80000000, 1024 bytes, Read and Execute only */
     ROM (rx) : ORIGIN = 0x00000000, LENGTH = 0x400   
     /* RAM: Start at 0x00000000, 4096 bytes, Read, Write, and Execute */
-    RAM (rwx) : ORIGIN = 0x00000500, LENGTH = 0x1000 
+    RAM (rwx) : ORIGIN = 0x00000000, LENGTH = 0x1000 
 }
 
 /* Sections definition */
