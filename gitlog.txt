@@ -14,3 +14,4 @@
 14：custom_addd测试一号：直接拷贝lucasteske看看能不能在RV32NAvi349上跑通
 15：IMPORTANT：彻底修了custom_addd，包括链接脚本，RAM和ROM的读写权限和起始地址，同时修改boot.s为贼复杂的测试样例，测试许多很难的hazard情况，我决定管这个测试叫feedcafe。
 16：增加测试的难度
+17：难以置信，测试一点问题都没有，我们的软件到硬件已经打通了！因此，我们把没问题的软件工具链放到了riscv_tests_collection/tests/modi_lucasteske，这个其实就是custom_addd的直接复制，因为custom_addd要用于设计自定义指令addd了！开始设计自定义指令addd！
