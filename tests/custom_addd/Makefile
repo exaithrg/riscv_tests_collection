@@ -1,4 +1,5 @@
 # Makefile for RISC-V project
+# Author: H GENG
 # make
 # make sed / make postprocess
 # make clean
@@ -57,10 +58,12 @@ $(DATA_HEX): $(ELF)
 
 # Post-process hex files
 postprocess: $(TEXT_HEX) $(DATA_HEX)
+# in link script: ROM (rx) : ORIGIN = 0x80000000
 	$(SED) -i 's/@800/@000/g' $(TEXT_HEX)
 	@echo "Address @80000000 replaced with @00000000 in $(TEXT_HEX)"
-	$(SED) -i 's/@800/@000/g' $(DATA_HEX)
-	@echo "Address @80000000 replaced with @00000000 in $(DATA_HEX)"
+# in link script: RAM (rwx) : ORIGIN = 0x00000000
+#	$(SED) -i 's/@000/@000/g' $(DATA_HEX)
+#	@echo "Address @00000000 replaced with @00000000 in $(DATA_HEX)"
 
 # Clean up
 clean:
