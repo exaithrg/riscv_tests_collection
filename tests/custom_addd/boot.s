@@ -14,13 +14,16 @@ _boot:                    /* x0  = 0    0x000 */
     add  x4 , x2,  x3    /* x4  = 5000 */
     addi x5 , x4,  1000  /* x5  = 6000 */
 
-    la x6, variable      /* load addr(var) to x6 */
+    la x6, variable      /* load addr(var) to x6, x6 = 0 */
     lw x7, 0(x6)         /* load var(feedcafe) to x7 */
     /* Hazard Test */
-    add x8, x6, x7       
-    sw x8, 4(zero)
-    sw x6, 8(zero)
-    sw x7, 0(zero)
+    add x8, x6, x7     
+    sw x8, 8(zero)
+    lw x9, 8(zero)
+    addi x10, x9, -1
+    sw x6, 0(zero)
+    sw x10, 12(zero)
+    sw x7, 4(zero)
 
 .data
 variable:

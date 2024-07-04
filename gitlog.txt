@@ -13,3 +13,4 @@
 13：将tests拷贝到：\\wsl.localhost\Ubuntu-22.04\home\geng\GitHubRepos\exaithrg\riscv_tests_collection\tests\references\RV32NAvi349\tests
 14：custom_addd测试一号：直接拷贝lucasteske看看能不能在RV32NAvi349上跑通
 15：IMPORTANT：彻底修了custom_addd，包括链接脚本，RAM和ROM的读写权限和起始地址，同时修改boot.s为贼复杂的测试样例，测试许多很难的hazard情况，我决定管这个测试叫feedcafe。
+16：增加测试的难度

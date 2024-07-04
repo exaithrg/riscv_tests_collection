@@ -13,9 +13,12 @@ Disassembly of section .text:
 80000014:	00000313          	li	t1,0
 80000018:	00032383          	lw	t2,0(t1)
 8000001c:	00730433          	add	s0,t1,t2
-80000020:	00802223          	sw	s0,4(zero) # 4 <_sheap>
-80000024:	00602423          	sw	t1,8(zero) # 8 <_sheap+0x4>
-80000028:	00702023          	sw	t2,0(zero) # 0 <variable>
+80000020:	00802423          	sw	s0,8(zero) # 8 <_sheap+0x4>
+80000024:	00802483          	lw	s1,8(zero) # 8 <_sheap+0x4>
+80000028:	fff48513          	addi	a0,s1,-1
+8000002c:	00602023          	sw	t1,0(zero) # 0 <variable>
+80000030:	00a02623          	sw	a0,12(zero) # c <_sheap+0x8>
+80000034:	00702223          	sw	t2,4(zero) # 4 <_sheap>
 
 Disassembly of section .data:
 
