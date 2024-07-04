@@ -1,0 +1,35 @@
+
+rvtest.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_boot>:
+   0:	3e800093          	li	ra,1000
+   4:	7d008113          	addi	sp,ra,2000
+   8:	c1810193          	addi	gp,sp,-1000
+   c:	83018213          	addi	tp,gp,-2000
+  10:	3e820293          	addi	t0,tp,1000 # 3e8 <__heap_size+0x1e8>
+  14:	00010317          	auipc	t1,0x10
+  18:	fec30313          	addi	t1,t1,-20 # 10000 <variable>
+  1c:	00430313          	addi	t1,t1,4
+
+Disassembly of section .data:
+
+00010000 <variable>:
+   10000:	deadbeef          	jal	t4,fffeb5ea <_sstack+0xfffdabe6>
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	1941                	.insn	2, 0x1941
+   2:	0000                	.insn	2, 0x
+   4:	7200                	.insn	2, 0x7200
+   6:	7369                	.insn	2, 0x7369
+   8:	01007663          	bgeu	zero,a6,14 <_boot+0x14>
+   c:	0000000f          	fence	unknown,unknown
+  10:	7205                	.insn	2, 0x7205
+  12:	3376                	.insn	2, 0x3376
+  14:	6932                	.insn	2, 0x6932
+  16:	7032                	.insn	2, 0x7032
+  18:	0031                	.insn	2, 0x0031
