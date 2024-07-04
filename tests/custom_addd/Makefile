@@ -4,6 +4,11 @@
 # make sed / make postprocess
 # make clean
 
+# Output files NAME
+OFNAME = main
+# Linker script
+LDSCRIPT = RV32NAvi349ADDD.ld
+
 # Compiler and tools
 GCC = riscv64-unknown-elf-gcc
 LD = riscv64-unknown-elf-ld
@@ -15,21 +20,19 @@ CHMOD = chmod
 # Compiler and linker flags
 ARCH_FLAGS = -march=rv32i -mabi=ilp32
 CFLAGS = $(ARCH_FLAGS) -nostdlib -c
-LDFLAGS = -m elf32lriscv -T basic.ld -nostdlib
+LDFLAGS = -m elf32lriscv -nostdlib
+# LDFLAGS = -m elf32lriscv -nostdlib -e _start
 
 # Source files
 SRCS = $(wildcard *.c *.s)
 OBJS = $(SRCS:.c=.o)
 OBJS := $(OBJS:.s=.o)
 
-# Output file base name
-TARGET = addd_test
-
 # Output files
-ELF = $(TARGET).elf
-DIS = $(TARGET).dis
-TEXT_HEX = $(TARGET)_text.hex
-DATA_HEX = $(TARGET)_data.hex
+ELF = $(OFNAME).elf
+DIS = $(OFNAME).dis
+TEXT_HEX = $(OFNAME)_text.hex
+DATA_HEX = $(OFNAME)_data.hex
 
 # Default target
 all: $(DIS) $(TEXT_HEX) $(DATA_HEX)
@@ -43,7 +46,7 @@ all: $(DIS) $(TEXT_HEX) $(DATA_HEX)
 
 # Link object files
 $(ELF): $(OBJS)
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -T $(LDSCRIPT) -o $@ $^
 
 # Generate disassembly
 $(DIS): $(ELF)
