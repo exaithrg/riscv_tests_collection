@@ -1,7 +1,7 @@
-# Makefile for RISC-V project
+# Makefile for RISC-V GNU Toolchain Projects
 # Author: H GENG
+# How to use:
 # make
-# make sed / make postprocess
 # make clean
 
 # Output files NAME
@@ -45,7 +45,9 @@ all: $(DIS) $(TEXT_HEX) $(DATA_HEX)
 	$(GCC) $(CFLAGS) -o $@ $<
 
 # Link object files
-$(ELF): $(OBJS)
+# $(ELF): $(OBJS)
+# Make sure link start.o first
+$(ELF): start.o $(filter-out start.o, $(OBJS))
 	$(LD) $(LDFLAGS) -T $(LDSCRIPT) -o $@ $^
 
 # Generate disassembly

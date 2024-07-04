@@ -1,1 +1,2 @@
 tc1：初始化顺利，现在就是如何保证首先链接start.s
+tc2：用$(ELF): start.o $(filter-out start.o, $(OBJS))保证了start在前。
