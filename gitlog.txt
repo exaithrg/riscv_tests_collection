@@ -11,3 +11,4 @@
 11：add_elf的更新版，不再出现读写负地址
 12：基于https://riscvasm.lucasteske.dev/拿到了完整的lucasteske链接脚本和汇编语言
 13：将tests拷贝到：\\wsl.localhost\Ubuntu-22.04\home\geng\GitHubRepos\exaithrg\riscv_tests_collection\tests\references\RV32NAvi349\tests
+14：custom_addd测试一号：直接拷贝lucasteske看看能不能在RV32NAvi349上跑通
