@@ -6,3 +6,10 @@ tc5：还是不行，我是真的服，那么尝试把data段搞小一点，然�
 tc6：发现tc5不行，然后tc4还没试过，重新交tc4。
 tc7：通过在CPU中设置：.addr({1'b0,PCF[30:0]}), ，有可能能解决让0x8000的问题。长使英雄泪满襟（changsyx尝试一下）。
 tc8：发现忘了替换0x80000了，重新交
+tca1：开始尝试添加addd的内联汇编，反复报错：
+➜  custom_addd git:(main) ✗ mk   
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -c -o start.o start.s
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -c -o addd.o addd.c
+addd.c: Assembler messages:
+addd.c:4: Error: unrecognized opcode `addd a5,a5,a4'
+make: *** [Makefile:42: addd.o] Error 1
