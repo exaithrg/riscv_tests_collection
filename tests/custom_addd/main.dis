@@ -52,12 +52,13 @@ Disassembly of section .text:
 80000098:	fe042583          	lw	a1,-32(s0)
 8000009c:	fe442503          	lw	a0,-28(s0)
 800000a0:	f6dff0ef          	jal	8000000c <addd_func>
-800000a4:	00050793          	mv	a5,a0
-800000a8:	00078513          	mv	a0,a5
-800000ac:	01c12083          	lw	ra,28(sp)
-800000b0:	01812403          	lw	s0,24(sp)
-800000b4:	02010113          	addi	sp,sp,32
-800000b8:	00008067          	ret
+800000a4:	fea42623          	sw	a0,-20(s0)
+800000a8:	fe842783          	lw	a5,-24(s0)
+800000ac:	00078513          	mv	a0,a5
+800000b0:	01c12083          	lw	ra,28(sp)
+800000b4:	01812403          	lw	s0,24(sp)
+800000b8:	02010113          	addi	sp,sp,32
+800000bc:	00008067          	ret
 
 Disassembly of section .riscv.attributes:
 
