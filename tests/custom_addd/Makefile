@@ -64,11 +64,11 @@ $(DATA_HEX): $(ELF)
 # Post-process hex files
 postprocess: $(TEXT_HEX) $(DATA_HEX)
 # in link script: ROM (rx) : ORIGIN = 0x80000000
-#	$(SED) -i 's/@800/@000/g' $(TEXT_HEX)
-#	@echo "Address @80000000 replaced with @00000000 in $(TEXT_HEX)"
-# in link script: RAM (rwx) : ORIGIN = 0xA0000000
-#	$(SED) -i 's/@A00/@000/g' $(DATA_HEX)
-#	@echo "Address @A0000000 replaced with @00000000 in $(DATA_HEX)"
+	$(SED) -i 's/@800/@000/g' $(TEXT_HEX)
+	@echo "Address @80000000 replaced with @00000000 in $(TEXT_HEX)"
+# in link script: RAM (rwx) : ORIGIN = 0x00000000
+#	$(SED) -i 's/@000/@000/g' $(DATA_HEX)
+#	@echo "Address @00000000 replaced with @00000000 in $(DATA_HEX)"
 
 # Clean up
 clean:
