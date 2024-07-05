@@ -1,4 +1,6 @@
 
+# include "addd_func.h"
+
 int main(){
     int i;
     int gauss;

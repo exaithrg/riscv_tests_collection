@@ -13,3 +13,8 @@ riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -c -o addd.o addd.c
 addd.c: Assembler messages:
 addd.c:4: Error: unrecognized opcode `addd a5,a5,a4'
 make: *** [Makefile:42: addd.o] Error 1
+
+tca2：
+改用简单的insn格式。
+".insn r 0x0b, 0x5, 0x55, %0, %1, %2"
+编译生成通过。
