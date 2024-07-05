@@ -15,3 +15,9 @@
 15：IMPORTANT：彻底修了custom_addd，包括链接脚本，RAM和ROM的读写权限和起始地址，同时修改boot.s为贼复杂的测试样例，测试许多很难的hazard情况，我决定管这个测试叫feedcafe。
 16：增加测试的难度
 17：难以置信，测试一点问题都没有，我们的软件到硬件已经打通了！因此，我们把没问题的软件工具链放到了riscv_tests_collection/tests/modi_lucasteske，这个其实就是custom_addd的直接复制，因为custom_addd要用于设计自定义指令addd了！开始设计自定义指令addd！
+18：【IMPORTANT】【重要更新】
+我们已经完成了start.s + main.c格式的工具包，存储在riscv_tests_collection/tests/gauss_5050，该函数的作用是计算从1加到100，并在计算完成、返回之后陷入死循环。同时，我们还完善了feedcafe，用来从RAM里面读取一个16进制数feedcafe并且以大量的互相冲突的lw/sw/addi/add指令来验证流水线hazard处理是否正确。
+因此，在18号更新之后，我们基本完成了如下两个重要测试：
+riscv_tests_collection/tests/read_feedcafe：只有一个.s汇编文件，可以自己手写汇编，当前用来测试RAM读写和Forwarding正确性。
+riscv_tests_collection/tests/gauss_5050：具有标准的start.s和main.c，用于计算从1加到100，链接脚本配置了完整的堆栈和RAM/ROM，用来测试CPU是否支持从0x8000开始的ROM和从0x0000开始的RAM，以及对bge/jalr/jal指令的支持。
+同时我们复制了gauss_5050为custom_addd，用来作为内联汇编学习RISC-V自定义指令的第一个测试。

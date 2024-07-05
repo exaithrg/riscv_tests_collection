@@ -1,6 +1,7 @@
 /* Linker script for bare-metal RISC-V environment */
 /* Author: H GENG */
-/* Thanks https://riscvasm.lucasteske.dev/ */
+/* Thanks: https://github.com/NAvi349/riscv-proc */
+/* Thanks: https://riscvasm.lucasteske.dev/ */
 
 /* Define the required amount of heap and stack */
 __heap_size   = 0x200;  /* Heap size: 512 bytes */
