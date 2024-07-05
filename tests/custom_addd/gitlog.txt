@@ -28,3 +28,6 @@ tca4：
 
 tca5：
 选择了5050-1的例子，来明确体现ADD和我自己新加入的ADDD指令的区别
+
+tca6：【IMPORTANT】【重要更新】
+CUSTOM_ADDD的INSN版本测试通过！
