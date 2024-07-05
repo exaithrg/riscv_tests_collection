@@ -11,9 +11,7 @@ int main(){
         gauss+=i;
     }
     // gauss = 5050.
-    j = -1;
-    k = -1;
-    j = addd_func(j,k);
-    k = gauss + j;
-    return k;
+    j = 10;
+    k = 20;
+    return addd_func(j,k);
 }
