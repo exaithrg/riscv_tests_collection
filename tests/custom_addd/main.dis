@@ -4,35 +4,35 @@ main.elf:     file format elf32-littleriscv
 
 Disassembly of section .text:
 
-00000000 <_start>:
-   0:	20000113          	li	sp,512
-   4:	008000ef          	jal	c <main>
+80000000 <_start>:
+80000000:	20000113          	li	sp,512
+80000004:	008000ef          	jal	8000000c <main>
 
-00000008 <loop>:
-   8:	000000ef          	jal	8 <loop>
+80000008 <loop>:
+80000008:	000000ef          	jal	80000008 <loop>
 
-0000000c <main>:
-   c:	fe010113          	addi	sp,sp,-32
-  10:	00812e23          	sw	s0,28(sp)
-  14:	02010413          	addi	s0,sp,32
-  18:	fe042423          	sw	zero,-24(s0)
-  1c:	fe042623          	sw	zero,-20(s0)
-  20:	0200006f          	j	40 <main+0x34>
-  24:	fe842703          	lw	a4,-24(s0)
-  28:	fec42783          	lw	a5,-20(s0)
-  2c:	00f707b3          	add	a5,a4,a5
-  30:	fef42423          	sw	a5,-24(s0)
-  34:	fec42783          	lw	a5,-20(s0)
-  38:	00178793          	addi	a5,a5,1
-  3c:	fef42623          	sw	a5,-20(s0)
-  40:	fec42703          	lw	a4,-20(s0)
-  44:	06400793          	li	a5,100
-  48:	fce7dee3          	bge	a5,a4,24 <main+0x18>
-  4c:	fe842783          	lw	a5,-24(s0)
-  50:	00078513          	mv	a0,a5
-  54:	01c12403          	lw	s0,28(sp)
-  58:	02010113          	addi	sp,sp,32
-  5c:	00008067          	ret
+8000000c <main>:
+8000000c:	fe010113          	addi	sp,sp,-32
+80000010:	00812e23          	sw	s0,28(sp)
+80000014:	02010413          	addi	s0,sp,32
+80000018:	fe042423          	sw	zero,-24(s0)
+8000001c:	fe042623          	sw	zero,-20(s0)
+80000020:	0200006f          	j	80000040 <main+0x34>
+80000024:	fe842703          	lw	a4,-24(s0)
+80000028:	fec42783          	lw	a5,-20(s0)
+8000002c:	00f707b3          	add	a5,a4,a5
+80000030:	fef42423          	sw	a5,-24(s0)
+80000034:	fec42783          	lw	a5,-20(s0)
+80000038:	00178793          	addi	a5,a5,1
+8000003c:	fef42623          	sw	a5,-20(s0)
+80000040:	fec42703          	lw	a4,-20(s0)
+80000044:	06400793          	li	a5,100
+80000048:	fce7dee3          	bge	a5,a4,80000024 <main+0x18>
+8000004c:	fe842783          	lw	a5,-24(s0)
+80000050:	00078513          	mv	a0,a5
+80000054:	01c12403          	lw	s0,28(sp)
+80000058:	02010113          	addi	sp,sp,32
+8000005c:	00008067          	ret
 
 Disassembly of section .riscv.attributes:
 
@@ -41,7 +41,7 @@ Disassembly of section .riscv.attributes:
    2:	0000                	.insn	2, 0x
    4:	7200                	.insn	2, 0x7200
    6:	7369                	.insn	2, 0x7369
-   8:	01007663          	bgeu	zero,a6,14 <main+0x8>
+   8:	01007663          	bgeu	zero,a6,14 <_sheap+0x14>
    c:	0011                	.insn	2, 0x0011
    e:	0000                	.insn	2, 0x
   10:	1004                	.insn	2, 0x1004
