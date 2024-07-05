@@ -7,7 +7,7 @@
 # Output files NAME
 OFNAME = main
 # Linker script
-LDSCRIPT = RV32NAvi349ADDD.ld
+LDSCRIPT = RV32NAvi349.ld
 
 # Compiler and tools
 GCC = riscv64-unknown-elf-gcc

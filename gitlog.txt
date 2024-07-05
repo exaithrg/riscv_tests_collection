@@ -21,3 +21,5 @@
 riscv_tests_collection/tests/read_feedcafe：只有一个.s汇编文件，可以自己手写汇编，当前用来测试RAM读写和Forwarding正确性。
 riscv_tests_collection/tests/gauss_5050：具有标准的start.s和main.c，用于计算从1加到100，链接脚本配置了完整的堆栈和RAM/ROM，用来测试CPU是否支持从0x8000开始的ROM和从0x0000开始的RAM，以及对bge/jalr/jal指令的支持。
 同时我们复制了gauss_5050为custom_addd，用来作为内联汇编学习RISC-V自定义指令的第一个测试。
+19:
+发现【18】的Makefile有bug（虽然生成的.hex是正确的），主要是link脚本改名了Makefile没跟上。修复了
