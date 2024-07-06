@@ -43,3 +43,6 @@ tcab2：
 编译出来的main_text.hex和insn版本完全一致
 .dis里面出现了addd命令
 证明一切成功。
+
+tcab3：
+通过对start.s的修改，进一步证明了在修了binutils之后，我们可以直接在汇编里面写addd，工具链可以识别。
