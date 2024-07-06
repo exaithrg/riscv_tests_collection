@@ -29,7 +29,7 @@ _start:
     /* Endless loop (trap into a dead loop) */
 loop:
     add t1,t1,t0
-    addd t2,t2,t0
+    addd t2,t1,t2
     jal loop
 
     /* End of program */
