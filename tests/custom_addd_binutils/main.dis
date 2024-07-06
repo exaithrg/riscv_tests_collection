@@ -13,7 +13,7 @@ Disassembly of section .text:
 
 80000014 <loop>:
 80000014:	00530333          	add	t1,t1,t0
-80000018:	aa53d38b          	addd	t2,t2,t0
+80000018:	aa73538b          	addd	t2,t1,t2
 8000001c:	ff9ff0ef          	jal	80000014 <loop>
 
 80000020 <addd_func>:
