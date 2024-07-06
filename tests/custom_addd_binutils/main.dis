@@ -10,12 +10,12 @@ Disassembly of section .text:
 80000008:	00000313          	li	t1,0
 8000000c:	00000393          	li	t2,0
 80000010:	07c000ef          	jal	8000008c <main>
-
-80000014 <loop>:
 80000014:	00050293          	mv	t0,a0
+
+80000018 <loop>:
 80000018:	fff30313          	addi	t1,t1,-1
 8000001c:	aa03538b          	addd	t2,t1,zero
-80000020:	ff5ff0ef          	jal	80000014 <loop>
+80000020:	ff9ff0ef          	jal	80000018 <loop>
 
 80000024 <addd_func>:
 80000024:	fd010113          	addi	sp,sp,-48

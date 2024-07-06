@@ -23,13 +23,14 @@ _start:
     call main
 
     /* Exit program */
+    /* Set t0 as the return value of main */
+    addi t0,a0,0
+
     /* li a7, 10   Exit syscall */
     /* ecall       Perform syscall */
 
     /* Endless loop (trap into a dead loop) */
 loop:
-    /* Set t0 as the return value of main */
-    addi t0,a0,0
     /* Cal loop counts */
     addi t1,t1,-1
     /* Cal loop counts / 2 */
