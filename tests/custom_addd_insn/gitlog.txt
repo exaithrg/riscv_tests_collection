@@ -1,0 +1,37 @@
+tc1：初始化顺利，现在就是如何保证首先链接start.s
+tc2：用$(ELF): start.o $(filter-out start.o, $(OBJS))保证了start在前。
+tc3：发现编译如果有jump to main等字符的话会试图向0x8000000地址跳转，这在硬件没有特意实现向80跳就是向ROM的00跳的时候会造成跳转错误。因此我们修改了链接脚本，让text段从0开始并让data段从A开始，然后靠Makefile的后处理将data段也设置为从0开始，这样可以实现同时初始化RAM和ROM。
+tc4：按tc3的做法，编译出来的指令又会反复试图访问data段，这是不存在的，那么只能强行尝试把data和text放在一起试试
+tc5：还是不行，我是真的服，那么尝试把data段搞小一点，然后这次开始认真的按指令debug
+tc6：发现tc5不行，然后tc4还没试过，重新交tc4。
+tc7：通过在CPU中设置：.addr({1'b0,PCF[30:0]}), ，有可能能解决让0x8000的问题。长使英雄泪满襟（changsyx尝试一下）。
+tc8：发现忘了替换0x80000了，重新交
+tca1：开始尝试添加addd的内联汇编，反复报错：
+➜  custom_addd git:(main) ✗ mk   
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -c -o start.o start.s
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -c -o addd.o addd.c
+addd.c: Assembler messages:
+addd.c:4: Error: unrecognized opcode `addd a5,a5,a4'
+make: *** [Makefile:42: addd.o] Error 1
+
+tca2：
+改用简单的insn格式。
+".insn r 0x0b, 0x5, 0x55, %0, %1, %2"
+编译生成通过。
+
+tca3：
+开始测试ADDD的生成代码对不对。
+
+tca4：
+总之我们确认了一点：编译器永远是对的，只要代码执行不对，那肯定是核实现错了。
+这个版本和tca3的区别是选择return 5050而不是return ADDD的结果
+
+tca5：
+选择了5050-1的例子，来明确体现ADD和我自己新加入的ADDD指令的区别
+
+tca6：【IMPORTANT】【重要更新】
+CUSTOM_ADDD的INSN版本测试通过！
+
+tcai1：
+tca6改名，叫custom_addd_insn
+仍然是原版的riscv64-unknown-elf-gcc支持

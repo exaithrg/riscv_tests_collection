@@ -31,3 +31,7 @@ tca5：
 
 tca6：【IMPORTANT】【重要更新】
 CUSTOM_ADDD的INSN版本测试通过！
+
+tcab1：
+tca6改名，叫custom_addd_binutils
+目标是支持定制化的riscv64-addd-elf-gcc
