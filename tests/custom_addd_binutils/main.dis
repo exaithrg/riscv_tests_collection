@@ -19,7 +19,7 @@ Disassembly of section .text:
 8000001c:	fcb42c23          	sw	a1,-40(s0)
 80000020:	fdc42783          	lw	a5,-36(s0)
 80000024:	fd842703          	lw	a4,-40(s0)
-80000028:	aae7d78b          	.insn	4, 0xaae7d78b
+80000028:	aae7d78b          	addd	a5,a5,a4
 8000002c:	fef42623          	sw	a5,-20(s0)
 80000030:	fec42783          	lw	a5,-20(s0)
 80000034:	00078513          	mv	a0,a5

@@ -35,3 +35,11 @@ CUSTOM_ADDD的INSN版本测试通过！
 tcab1：
 tca6改名，叫custom_addd_binutils
 目标是支持定制化的riscv64-addd-elf-gcc
+
+tcab2：
+支持了定制化的riscv32-addd-elf-gcc
+然后由于这个编译器本身就是-march=rv32i -mabi=ilp32
+所以删掉了Makefile中关于架构的这个配置。
+编译出来的main_text.hex和insn版本完全一致
+.dis里面出现了addd命令
+证明一切成功。

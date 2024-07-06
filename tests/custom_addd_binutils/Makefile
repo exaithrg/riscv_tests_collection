@@ -10,16 +10,17 @@ OFNAME = main
 LDSCRIPT = RV32NAvi349.ld
 
 # Compiler and tools
-GCC = riscv64-unknown-elf-gcc
-LD = riscv64-unknown-elf-ld
-OBJDUMP = riscv64-unknown-elf-objdump
-OBJCOPY = riscv64-unknown-elf-objcopy
+GCC = riscv32-addd-elf-gcc
+LD = riscv32-addd-elf-ld
+OBJDUMP = riscv32-addd-elf-objdump
+OBJCOPY = riscv32-addd-elf-objcopy
 SED = sed
 CHMOD = chmod
 
 # Compiler and linker flags
-ARCH_FLAGS = -march=rv32i -mabi=ilp32
-CFLAGS = $(ARCH_FLAGS) -nostdlib -c
+# ARCH_FLAGS = -march=rv32i -mabi=ilp32
+# CFLAGS = $(ARCH_FLAGS) -nostdlib -c
+CFLAGS = -nostdlib -c
 LDFLAGS = -m elf32lriscv -nostdlib
 # LDFLAGS = -m elf32lriscv -nostdlib -e _start
 
