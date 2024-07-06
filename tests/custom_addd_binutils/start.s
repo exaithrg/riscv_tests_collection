@@ -15,9 +15,9 @@ _start:
     la sp, _estack
 
     /* Initialize t0,t1,t2 */
-    li t0,10
-    li t1,10
-    li t2,10
+    li t0,0
+    li t1,0
+    li t2,0
 
     /* Call main function */
     call main
@@ -28,8 +28,12 @@ _start:
 
     /* Endless loop (trap into a dead loop) */
 loop:
-    add t1,t1,t0
-    addd t2,t1,t2
+    /* Set t0 as the return value of main */
+    addi t0,a0,0
+    /* Cal loop counts */
+    addi t1,t1,-1
+    /* Cal loop counts / 2 */
+    addd t2,t1,zero
     jal loop
 
     /* End of program */
