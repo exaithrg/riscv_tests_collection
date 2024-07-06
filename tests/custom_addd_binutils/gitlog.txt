@@ -61,3 +61,6 @@ t2作为addd t2,t1,zero的结果存储，体现addd的右移1位。
 
 tcab7：
 修改tcab6中t0无法得到13ba的问题，看看能不能改成功。
+
+tcab8：
+完全成功版本。和tcab7一样，在na17上测试通过。注意t0不是5050，而是因为main.c选择了return add2，所以t0被设置为0x800009DC
