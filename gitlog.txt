@@ -33,3 +33,5 @@ riscv_tests_collection/tests/gauss_5050：具有标准的start.s和main.c，用�
 下面就是开发custom_addd_binutils了。
 21:
 add author to main.c in gauss_5050
+22:
+2024.07.08 release to ISCL
