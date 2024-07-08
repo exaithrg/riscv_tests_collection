@@ -1,3 +1,7 @@
+# make
+# make run
+# make clean
+
 GNU ?= riscv64-unknown-elf
 
 COPS = -g -march=rv64gcv --static
