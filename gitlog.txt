@@ -35,3 +35,7 @@ riscv_tests_collection/tests/gauss_5050：具有标准的start.s和main.c，用�
 add author to main.c in gauss_5050
 22:
 2024.07.08 release to ISCL
+
+23：
+引入https://github.com/runninglinuxkernel/riscv_programming_practice
+到/home/geng/GitHubRepos/exaithrg/riscv_tests_collection/riscv_programming_practice
