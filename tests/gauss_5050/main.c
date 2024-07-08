@@ -1,3 +1,5 @@
+// main: add from 1 to 100
+// Author: H GENG
 
 int main(){
     int i;

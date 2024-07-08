@@ -31,3 +31,5 @@ riscv_tests_collection/tests/gauss_5050：具有标准的start.s和main.c，用�
 原来的custom_addd改名叫custom_addd_insn，意思是用insn来完成自定义指令
 然后加一个新的custom_addd_binutils，意思是把工具链一起改了
 下面就是开发custom_addd_binutils了。
+21:
+add author to main.c in gauss_5050
