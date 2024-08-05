@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# "sudo apt install wslu" to support wslview
-wslview https://github.com/exaithrg/riscv_tests_collection
-
-# xdg-open https://github.com/exaithrg/riscv_tests_collection
