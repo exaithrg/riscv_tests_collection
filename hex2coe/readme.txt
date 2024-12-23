@@ -1,0 +1,2 @@
+fullmod_sdram_test是FPGA的最终测试
+irun_final_test是门级网表用的最终测试
